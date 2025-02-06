@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Primos</title>
+</head>    
+<body>
+
+    <button id="mostrarPrimos">Mostrar Números Primos</button>
+<script>
+     document.getElementById('mostrarPrimos').addEventListener('click', function() {
+            const entradaUsuario = window.prompt('Introduce un número entero positivo:');
+
+            if (entradaUsuario) {
+                const X = parseInt(entradaUsuario);
+
+                if (isNaN(X) || X < 1) {
+                    alert('Por favor, introduce un número entero positivo válido.');
+                    return;
+                }
+
+                // Función para determinar si un número es primo
+                function esPrimo(numero) {
+                    if (numero <= 1) return false;
+                    for (let i = 2; i <= Math.sqrt(numero); i++) {
+                        if (numero % i === 0) return false;
+                    }
+                    return true;
+                }
+
+                // Obtener los números primos entre 1 y X
+                const primos = [];
+                for (let i = 2; i <= X; i++) {
+                    if (esPrimo(i)) {
+                        primos.push(i);
+                    }
+                }
+
+                // Abrir una nueva ventana o pestaña y mostrar los números primos en una tabla
+                const nuevaVentana = window.open('', '_blank');
+                nuevaVentana.document.write(`
+                    <!DOCTYPE html>
+                    <html lang="es">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Números Primos hasta ${X}</title>
+                        <style>
+                            table {
+                                border-radius: 5px;
+
+                                border-collapse: collapse;
+                                margin: 20px auto;
+                                font-family: Arial, sans-serif;
+                                background-color: #f9f9f9;
+                            }
+
+                            th, td {
+                                border-radius: 5px;
+                                border: 1px solid #ddd;
+                                padding: 10px 15px;
+                                text-align: center;
+                            }
+
+                            
+                            
+
+                           
+
+                            
+                        </style>
+                    </head>
+                    <body>
+                        <h3 style="text-align: center;">Números Primos entre 1 y ${X}</h3>
+                        <table>
+                            <tr><th>Números Primos</th></tr>
+                            ${primos.map(primo => `<tr><td>${primo}</td></tr>`).join('')}
+                        </table>
+                    </body>
+                    </html>
+                `);
+                nuevaVentana.document.close();
+            }
+        });
+    
+  
+</script>
+</body>
+</html>

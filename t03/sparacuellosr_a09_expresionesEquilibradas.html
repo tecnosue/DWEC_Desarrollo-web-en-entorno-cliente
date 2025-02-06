@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>expresiones equilibradas</title>
+    <div id="resultado"></div>
+</head>
+<body>
+<script>
+
+
+    function comprobar(entradaUsuario) {
+        
+        // Dividimos en caracteres
+        const delimitadores = [];
+        const apertura = ['{', '[', '('];
+        const cierre = ['}', ']', ')'];
+        const correspondencia = {
+            '}': '{',
+            ']': '[',
+            ')': '('
+        };
+        for (let char of entradaUsuario){
+            if (apertura.includes(char)){
+                delimitadores.push(char);
+            }
+            if (cierre.includes(char)){
+                if (delimitadores[delimitadores.length - 1] === correspondencia[char]){
+                    delimitadores.pop();
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        
+    
+      
+        return delimitadores.length === 0;
+
+    }
+
+    
+
+    // 6. Pedir la entrada al usuario
+    const entradaUsuario = window.prompt('introduce expresion');
+
+    if (entradaUsuario !== null) {
+            // Realizar la comprobacion
+            const resultado = comprobar(entradaUsuario);
+            if (resultado){
+                document.getElementById('resultado').innerText = `La expresion ${entradaUsuario} está equilibrada`;
+            }
+            else{
+                document.getElementById('resultado').innerText = `Upss...La expresion ${entradaUsuario} NO está equilibrada`;
+            }
+
+            
+            
+
+            
+    }
+  
+</script>
+</body>
+</html>

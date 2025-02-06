@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindromo</title>
+</head>    
+<body>
+
+    <button id="verificarPalindromo">Verificar Palíndromo</button>
+<script>
+    document.getElementById('verificarPalindromo').addEventListener('click', function() {
+
+        const entradaUsuario = window.prompt('introduce palabra o expresion');
+
+        if (entradaUsuario) {
+            // Verificar si el texto ingresado es un palíndromo
+            const resultado = esPalindromo(entradaUsuario) ? 'El texto es un palíndromo.' : 'El texto no es un palíndromo.';
+        
+            // Abrir una nueva ventana o pestaña y mostrar el resultado
+            const nuevaVentana = window.open('', '_blank');
+            nuevaVentana.document.write(`
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Resultado</title>
+                </head>
+                <body>
+                    <h3>${resultado}</h3>
+                </body>
+                </html>
+            `);
+            nuevaVentana.document.close();
+        }
+    });
+
+
+
+                                 
+    
+    function esPalindromo(entradaUsuario) {
+        
+        // Dividimos en caracteres
+        const texto = entradaUsuario.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const textoInvertido = texto.split('').reverse().join('');
+        return texto === textoInvertido;
+    }
+    
+
+    
+    
+
+    
+  
+</script>
+</body>
+</html>

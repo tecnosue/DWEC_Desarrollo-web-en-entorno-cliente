@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anagrama</title>
+</head>
+<body>
+    <h1>Introduce dos palabras para saber si son anagramas</h1>
+    
+    <script>
+        function anagrama(){
+            let palabra1 = prompt('Introduce la primera palabra');
+            let palabra2 = prompt('Introduce la segunda palabra');
+            let palabra1ordenada = palabra1.split('').sort().join('');
+            let palabra2ordenada = palabra2.split('').sort().join('');
+
+            if(palabra1 === palabra2){
+                alert('Las palabras no son anagramas');
+                
+            }
+
+            if(palabra1ordenada === palabra2ordenada){
+                alert('Las palabras son anagramas');
+            }
+            else{
+                alert('Las palabras no son anagramas');
+            }
+            
+        }
+        anagrama();
+
+
+        
+
+        
+    </script>
+</body>
+</html>

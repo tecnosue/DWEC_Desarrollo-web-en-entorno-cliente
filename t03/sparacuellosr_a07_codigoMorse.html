@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Código Morse</title>
+</head>
+<body>
+<script>
+    // 1. Definimos el diccionario de Texto a Morse.
+    const textoAMorse = {
+        'A': '.—',   'B': '—...',  'C': '—.—.',  'D': '—..',   'E': '.',
+        'F': '..—.', 'G': '——.',   'H': '....',  'I': '..',    'J': '.———',
+        'K': '—.—',  'L': '.—..',  'M': '——',    'N': '—.',    'O': '———',
+        'P': '.——.', 'Q': '——.—',  'R': '.—.',   'S': '...',   'T': '—',
+        'U': '..—',  'V': '...—',  'W': '.——',   'X': '—..—',  'Y': '—.——',
+        'Z': '——..', '0': '—————', '1': '.————', '2': '..———', '3': '...——',
+        '4': '....—','5': '.....', '6': '—....', '7': '——...', '8': '———..',
+        '9': '————.', '.': '.—.—.—', ',': '——..——', '?': '..——..', '-': '—....—'
+    };
+
+    //En JavaScript, el método Object.entries() 
+    //devuelve una matriz de pares [clave, valor] de las propiedades enumerables propias de un objeto. 
+    //Cada par es una matriz donde el primer elemento es la clave de la propiedad y el segundo es su valor correspondiente.
+
+    // 2. Creamos el diccionario Morse a Texto invirtiendo las claves y los valores
+    const morseATexto = {};
+    for (const [letra, morse] of Object.entries(textoAMorse)) {
+        morseATexto[morse] = letra;
+    }
+
+    // 3. Función para convertir texto a Morse
+    function convertirTextoAMorse(texto) {
+        // Convertimos todo a mayúsculas
+        texto = texto.toUpperCase();
+        // Dividimos en palabras
+        const palabras = texto.split(' '); 
+        // Por cada palabra, convertimos cada letra
+        const palabrasMorse = palabras.map(pal => {
+            const letras = pal.split('');
+            const letrasMorse = letras.map(l => textoAMorse[l] || '').join(' ');  // nos aseguramos de que se devuelva una cadena vacía en lugar de undefined -->textoAMorse[l] || '')
+            return letrasMorse; 
+        });
+        // Unir las palabras Morse con dos espacios
+        return palabrasMorse.join('  ');
+    }
+
+    // 4. Función para convertir Morse a Texto
+    function convertirMorseATexto(morse) {
+        // Dividir las palabras por dos espacios
+        const palabrasMorse = morse.trim().split('  ');
+        const palabrasTexto = palabrasMorse.map(pal => {
+            const letrasMorse = pal.split(' ');
+            const letrasTexto = letrasMorse.map(lm => morseATexto[lm] || '').join('');
+            return letrasTexto;
+        });
+        return palabrasTexto.join(' ');
+    }
+
+    // 5. Función para detectar el tipo de entrada y convertir
+    function detectarYConvertir(entrada) {
+        const trimEntrada = entrada.trim();
+        if (trimEntrada === '') {
+            return 'Entrada vacía.';
+        }
+        // Detectar si es Morse: solo debe contener '.', '—' y espacios
+        const esMorse = /^[.\— ]+$/.test(trimEntrada);
+        if (esMorse) {
+            return convertirMorseATexto(trimEntrada);
+        } else {
+            return convertirTextoAMorse(trimEntrada);
+        }
+    }
+
+    // 6. Pedir la entrada al usuario
+    const entradaUsuario = window.prompt('Introduce texto o código Morse:');
+
+    // 7. Realizar la conversión
+    const resultado = detectarYConvertir(entradaUsuario);
+
+    // 8. Mostrar el resultado en el cuerpo del documento
+    document.body.innerHTML = `<h1>Resultado</h1><p>${resultado}</p>`;
+</script>
+</body>
+</html>

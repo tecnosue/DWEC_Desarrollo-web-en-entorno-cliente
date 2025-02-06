@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domVentanaPrincipal</title>
+</head>    
+<body>
+    <h1>TAREA 03</h1>
+    <div id="nombre"></div>
+    <div id="contadorCaracteres"></div>
+    <div id="primeraLetraA"></div>
+    <div id="ultimaLetraA"></div>
+    <div id="ultimaLetraA"></div>
+    <div id="nombreMenos3"></div>
+    <div id="nombreMayusculas"></div>
+    <div id="edad"></div>
+    <div id="fechaNacimiento"></div>
+    <div id="coseno"></div>
+    <div id="numeroMayor"></div>
+    <div id="numeroAzar"></div>
+
+    
+<script>
+        function solicitarDatosYMostrarInformacion() {
+
+            const nombre = window.prompt('Introduzca su nombre de usuario.');
+            const dia = parseInt(window.prompt('Introduzca su DIA de nacimiento.'),10);
+            const mes = parseInt(window.prompt('Introduzca su MES de nacimiento.'),10);
+            const anio = parseInt(window.prompt('Introduzca su AÑO de nacimiento.'),10);
+            // // Validar que los datos ingresados sean correctos
+            // if (!nombre || isNaN(dia) || isNaN(mes) || isNaN(anio)) {
+            //     alert('Por favor, ingrese datos válidos.');
+            //     return;
+            // }
+
+            // Mostrar saludo
+            document.getElementById('nombre').innerText = `Buenos días, ${nombre}`;
+
+            // Contar caracteres del nombre
+            const longitudNombre = nombre.length;
+            document.getElementById('contadorCaracteres').innerText = `Tu nombre tiene ${longitudNombre} caracteres, incluidos espacios.`;
+
+            // Encontrar la primera y última posición de la letra 'A' (sin diferenciar mayúsculas y minúsculas)
+            const nombreLower = nombre.toLowerCase();
+            const primeraPosA = nombreLower.indexOf('a');
+            const ultimaPosA = nombreLower.lastIndexOf('a');
+            document.getElementById('primeraLetraA').innerText = `La primera letra 'A' de tu nombre está en la posición: ${primeraPosA !== -1 ? primeraPosA + 1 : 'No se encuentra'}`;
+            document.getElementById('ultimaLetraA').innerText = `La última letra 'A' de tu nombre está en la posición: ${ultimaPosA !== -1 ? ultimaPosA + 1 : 'No se encuentra'}`;
+
+            // Mostrar el nombre sin las tres primeras letras
+            const nombreSinTresPrimeras = nombre.length > 3 ? nombre.substring(3) : '';
+            document.getElementById('nombreMenos3').innerText = `Tu nombre menos las 3 primeras letras es: ${nombreSinTresPrimeras}`;
+
+            // Mostrar el nombre en mayúsculas
+            const nombreMayusculas = nombre.toUpperCase();
+            document.getElementById('nombreMayusculas').innerText = `Tu nombre todo en mayúsculas es: ${nombreMayusculas}`;
+
+            // Calcular la edad
+            const fechaNacimiento = new Date(anio, mes - 1, dia);
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            const mesDiferencia = hoy.getMonth() - fechaNacimiento.getMonth();
+            if (mesDiferencia < 0 || (mesDiferencia === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            document.getElementById('edad').innerText = `Tu edad es: ${edad} años.`;
+
+            // Mostrar fecha de nacimiento
+            const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+            const mesTexto = meses[mes - 1];
+            document.getElementById('fechaNacimiento').innerText = `Naciste un feliz ${dia} de ${mesTexto} del año ${anio}.`;
+
+            // Calcular el coseno de 180 grados
+            const coseno180 = Math.cos(180 * Math.PI / 180);
+            document.getElementById('coseno').innerText = `El coseno de 180 es: ${coseno180}.`;
+
+            // Encontrar el número mayor en una lista
+            const numeros = [34, 67, 23, 75, 35, 19];
+            const numeroMayor = Math.max(...numeros);
+            document.getElementById('numeroMayor').innerText = `El número mayor de (34,67,23,75,35,19) es: ${numeroMayor}.`;
+
+            // Generar un número al azar entre 0 y 1
+            const numeroAzar = Math.random();
+            document.getElementById('numeroAzar').innerText = `Ejemplo de número al azar: ${numeroAzar}.`;
+        }
+
+        // Llamar a la función al cargar la página
+        solicitarDatosYMostrarInformacion();
+
+            
+  
+</script>
+</body>
+</html>

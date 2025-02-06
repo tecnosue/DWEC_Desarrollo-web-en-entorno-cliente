@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana Principal</title>
+</head>
+<body>
+    <button onclick="abrirVentana()">Abrir Ventana Nueva</button>
+
+    <script>
+        function abrirVentana() {
+            // Abrir una nueva ventana no redimensionable
+            const nuevaVentana = window.open('', 'ventanaNueva', 'width=800,height=600,resizable=no');
+
+            // Escribir contenido en la nueva ventana
+            nuevaVentana.document.write(`
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Ejemplo de Ventana Nueva</title>
+                </head>
+                <body>
+                    <h3>Ejemplo de Ventana Nueva</h3>
+                    <p>URL Completa: ${window.location.href}</p>
+                    <p>Protocolo utilizado: ${window.location.protocol}</p>
+                    <p>Nombre en código del navegador: ${navigator.userAgent}</p>
+                    <p>Java ${navigator.javaEnabled() ? 'SI' : 'NO'} disponible en esta ventana.</p>
+                    <iframe src="https://www.example.com" width="800" height="600"></iframe>
+                </body>
+                </html>
+            `);
+
+            // Cerrar el flujo de escritura
+            nuevaVentana.document.close();
+        }
+    </script>
+</body>
+</html>

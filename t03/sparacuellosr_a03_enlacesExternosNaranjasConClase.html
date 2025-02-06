@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnlacesExternosNaranjasConClase</title>
+    
+</head>
+<body>
+    <a name="list">the list</a>
+    <ul>
+      <li><a class="externa" href="http://google.com">http://google.com</a></li>
+      <li><a href="/tutorial">/tutorial.html</a></li>
+      <li><a href="local/path">local/path</a></li>
+      <li><a class="externa" href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+      <li><a class="externa" href="http://nodejs.org">http://nodejs.org</a></li>
+      <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+
+<script>
+  // establecer un estilo para un enlace
+  let linksNaranjas = document.getElementsByClassName('externa');
+  for (let link of linksNaranjas) {
+    link.style.color = 'orange';
+  }
+  
+  
+</script>
+</body>
+</html>
+
+

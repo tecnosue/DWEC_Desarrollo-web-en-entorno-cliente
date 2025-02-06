@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div data-widget-name="menu">Elige el genero</div>
+
+    <script>
+      /* Tu código */
+      //con getAttribute accedemos al valor del atributo
+      let valorAtributo = document.querySelector('[data-widget-name]').getAttribute('data-widget-name');
+      console.log(valorAtributo);
+
+      //con dataset no hace falta .getAttribute para acceder al valor del atributo.
+     /*  let valorAtributo2 = document.querySelector('[data-widget-name]');
+        console.log(valorAtributo2.dataset.widgetName); */
+    </script>
+  </body>
+</html>
