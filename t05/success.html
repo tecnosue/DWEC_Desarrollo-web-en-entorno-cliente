@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>success</title>
+  </head>
+  <body>
+    <h1>Formulario enviado con éxito</h1>
+    <p></p>
+
+    <pre id="contenedorJSON"></pre>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1) Leer de localStorage
+        const datosGuardados = localStorage.getItem("formData");
+        if (datosGuardados) {
+          // 2) Convertir a objeto para manipularlo si quieres
+          const objDatos = JSON.parse(datosGuardados);
+
+          // 3) Mostrarlo en pantalla (como JSON)
+          const contenedor = document.getElementById("contenedorJSON");
+          contenedor.textContent = JSON.stringify(objDatos, null, 2);
+
+          // O podrías recorrerlo para armar una tabla, una lista, etc.
+        } else {
+          // Si no hay datos, mostrar algo
+          document.getElementById("contenedorJSON").textContent =
+            "No hay datos disponibles.";
+        }
+      });
+    </script>
+  </body>
+</html>

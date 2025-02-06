@@ -1,0 +1,318 @@
+/* ==================================================
+   ESTILOS DE ESTRUCTURA GENERALES 
+   ================================================== */
+
+/* Quita margen y padding por defecto */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Tipografía básica */
+body {
+  background: #efefef;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dos {
+  display: flex;
+}
+
+#fondo {
+  min-height: 100%;
+  position: relative;
+  min-width: 0;
+  background: #fff; /* Fondo blanco */
+}
+
+#fondo #contenedor {
+  width: 80em;
+  margin: 0 auto;
+  padding-bottom: 1.8em;
+  border: none;
+}
+
+/* Links */
+.banner a {
+  text-decoration-line: none;
+  color: #004578;
+}
+
+/* Encabezado / Header */
+header {
+  width: 100%;
+  background: #fff;
+}
+
+.barrasuperior {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  min-height: 2em;
+  background: #004e86;
+  border: 1px solid #004e86;
+  border-bottom: none;
+}
+
+.capa-fondo {
+  min-height: 100%;
+  position: relative;
+  min-width: 61em;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Cabecera con logos */
+.cabecera {
+  background: url("./img/cabecera.jpg") no-repeat center center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+.logos {
+  margin: 5px 0;
+}
+
+.helper {
+  visibility: hidden;
+}
+
+.titulo {
+  color: #004e86;
+  padding-top: 25px;
+  font-size: 1.2em;
+}
+
+h2 {
+  color: #004e86;
+  padding-top: 25px;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.azul {
+  color: #277bba;
+}
+
+.rojo {
+  color: #c00;
+}
+
+/* Barra literal */
+.literal {
+  background: #277bba;
+  margin: 0 5%;
+  padding: 0.5em;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.literal p {
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.contenedor {
+  display: flex;
+  margin: 5px 5%;
+  margin-bottom: 10px;
+}
+
+/* Columna izquierda */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+li {
+  margin-right: 1em;
+}
+
+.pasos {
+  background-color: #fff;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+}
+
+.pasos ul li {
+  display: inline-block; /* 2. Mostrar en línea */
+  margin-right: 1em; /* Espacio entre li */
+  vertical-align: middle;
+}
+
+.pasos ul li img {
+  vertical-align: middle; /* 3. Alinea la flecha con el texto */
+  margin-left: 0.3em; /* Pequeño espacio antes de la flecha */
+}
+
+.contenedor-left {
+  margin-right: 20px;
+}
+
+form {
+  padding: 1em;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+fieldset {
+  border-top: 2px solid #1c5493;
+}
+
+legend {
+  font-size: 0.75em;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+form fieldset {
+  margin: 0.5em 0 0.3em;
+  padding: 1em 0.5em;
+  border: 1px solid #ccc;
+  border-top: 2px solid #000;
+}
+
+form fieldset div {
+  margin: 0;
+  padding: 0.1em 0.1em 0.3em 0;
+  clear: both;
+  display: block;
+}
+
+.camposformulario {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin: 1em 1em 1em 6em;
+  align-items: center;
+}
+
+.camposformulario label {
+  font-size: 0.8rem;
+  line-height: 1.9em;
+  font-weight: 700;
+  text-align: right;
+  padding-right: 5px;
+}
+
+form fieldset div input {
+  color: #333;
+  min-height: 1.48em;
+  padding-left: 0.25em;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="date"],
+form input[type="email"],
+form select {
+  color: #333;
+  width: min-content;
+  padding: 0.25em;
+}
+
+div .avisos {
+  border: 1px solid #dedede;
+  margin: 1em 1em 1em 22em;
+}
+
+.avisos.info {
+  background: #e8f5fd url("img/info.png") 0.5em 0.5em no-repeat;
+  border-color: #c1d7f1;
+  font-size: 0.8rem;
+}
+
+.avisos.info p {
+  margin-left: 25px;
+}
+
+/* Columna derecha */
+
+.contenedor-right {
+  width: 211px;
+  min-height: 30.5em;
+  height: auto !important;
+  display: inline-block;
+  float: right;
+  margin: 0.75em;
+  margin-left: 0;
+  padding: 0 0 0 0.75em;
+  border-left: 1px solid #ccc;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 209px;
+  background-color: transparent;
+  border: none;
+  white-space: normal;
+  text-align: left;
+  height: 3.8em;
+  padding: 0.2em 4.75em 0.5em 0.5em;
+  font-size: 1.1em;
+  color: #2d5582;
+  font-weight: 700;
+}
+
+.error-message {
+  color: red;
+  font-size: small;
+  margin-top: 5px; /* Espacio entre el input y el mensaje */
+}
+
+/* FOOTER */
+footer {
+  /* position: absolute; */
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  margin: 05px 5% 0;
+}
+
+div#leyenda-navegadores {
+  background: #ffff;
+  padding: 0.5em;
+  border-top: 2px solid #ccc;
+  width: 99em;
+  font-size: 0.8em;
+  margin: 0 auto;
+}
+
+#pie {
+  border-top: 1px solid #ccc;
+  background: #fff;
+}
+
+.error {
+  color: #c00;
+  font-size: 0.9em;
+  margin-top: 0.3em;
+}
+
+input[type="submit"] {
+  background-color: #036;
+  color: #fff;
+  border: none;
+  padding: 0.75em 1.5em;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1em;
+  align-items: right;
+}
+
+button[type="submit"]:hover {
+  background-color: #024;
+}

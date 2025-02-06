@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulario - Sede Educación</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="capa-fondo">
+      <!-- cabecera de la pagina -->
+      <header>
+        <div class="barrasuperior"></div>
+
+        <div class="cabecera">
+          <div class="logos">
+            <a id="escudo" href="https://www.educacionyfp.gob.es"
+              ><img
+                title="Ministerio de Educación, Formación Profesional y Deportes"
+                alt="Escudo del Ministerio"
+                src="img/MEFPD.png"
+            /></a>
+          </div>
+          <div class="titulo">Sede electr&oacute;nica</div>
+          <div class="helper">Sede electr&oacute;nica</div>
+          <!--con el css lo oculto, solo esta para que empuje el titulo -->
+        </div>
+
+        <div class="literal">
+          <p>
+            Sede Electrónica - Ministerio de Educación, Formación Profesional y
+            Deportes
+          </p>
+        </div>
+      </header>
+
+      <!-- contenedor  de la pagina -->
+      <div class="contenedor">
+        <div class="contenedor-left">
+          <h2>Registro</h2>
+
+          <div class="pasos">
+            <ul>
+              <li>
+                <span class="azul">Paso 1:</span> &nbsp;Rellene el formulario
+                <img src="img/flecha.png" alt="Flecha" />
+              </li>
+              <li>Paso 2 <img src="img/flecha.png" alt="Flecha" /></li>
+              <li>Paso 3</li>
+            </ul>
+          </div>
+
+          <p><span class="rojo">*</span>Datos de carácter obligatorio</p>
+          <!-- Formulario -->
+          <form
+            action="/success.html"
+            id="registrarUsuario"
+            name="registrarUsuario"
+            method="post"
+            onsubmit="return validarCampo()"
+          >
+            <fieldset>
+              <legend>Datos del usuario</legend>
+              <div class="camposformulario">
+                <label for="nombre"><span class="rojo">*</span> Nombre:</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  size="24"
+                  maxlength="80"
+                  value=""
+                  tabindex="1"
+                  id="nombre"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="apellido1"
+                  ><span class="rojo">*</span> Primer apellido:</label
+                >
+                <input
+                  type="text"
+                  name="apellido1"
+                  size="24"
+                  maxlength="40"
+                  value=""
+                  tabindex="2"
+                  id="apellido1"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="apellido2">Segundo apellido:</label>
+                <input
+                  type="text"
+                  name="apellido2"
+                  size="24"
+                  maxlength="40"
+                  value=""
+                  tabindex="3"
+                  id="apellido2"
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="fechanacimiento"
+                  ><span class="rojo">*</span> Fecha nacimiento:</label
+                >
+                <input
+                  type="date"
+                  name="fechanacimiento"
+                  size="10"
+                  maxlength="10"
+                  value=""
+                  tabindex="4"
+                  id="fechanacimiento"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="tipodocumento"
+                  ><span class="rojo">*</span> Tipo documento:</label
+                >
+                <select
+                  name="tipodocumento"
+                  tabindex="5"
+                  id="tipodocumento"
+                  required
+                >
+                  <option value="1">DNI</option>
+                  <option value="2">NIE</option>
+                  <option value="4">Otro</option>
+                </select>
+              </div>
+              <div class="camposformulario">
+                <label for="numdocumento"
+                  ><span class="rojo">*</span> Nº documento:</label
+                >
+                <input
+                  type="text"
+                  name="numdocumento"
+                  size="20"
+                  maxlength="20"
+                  value=""
+                  tabindex="8"
+                  id="numdocumento"
+                  placeholder="Ejemplo: 01234567L"
+                  required
+                />
+              </div>
+              <div class="avisos info">
+                <p>
+                  Este identificador se utilizará como usuario de acceso a la
+                  Sede electrónica.
+                </p>
+              </div>
+
+              <div class="camposformulario">
+                <label for="idxesp"
+                  ><span class="rojo">*</span>Número de
+                  soporte/IDESP/IXESP:</label
+                >
+                <input
+                  type="text"
+                  name="idxesp"
+                  size="9"
+                  maxlength="9"
+                  value=""
+                  tabindex="14"
+                  id="idxesp"
+                  required
+                />
+              </div>
+              <div class="avisos info">
+                <p>
+                  Si selecciona como Tipo de Documento DNI deberá informar el
+                  IDESP, si por el contrario selecciona NIE deberá informar el
+                  IXESP para que el Sistema pueda verificar sus Datos de
+                  Identidad con la Dirección General de la Policía.
+                  <a
+                    href="https://sede.educacion.gob.es/dam/jcr:328d4bc3-ea5c-4d78-99a1-93ab4c2d669a/ayuda_identidad.pdf"
+                    rel="external"
+                    >Ver ayuda identidad</a
+                  >
+                </p>
+                <p>
+                  Le recordamos en tal caso, que la información introducida en
+                  los campos
+                  <b
+                    >Nombre, Primer apellido y Segundo apellido (en caso de
+                    estar informado) deben ser EXACTAMENTE IGUALES a los
+                    existentes en su documento de identificación.</b
+                  >
+                </p>
+              </div>
+              <div class="camposformulario">
+                <label for="contrasena"
+                  ><span class="rojo">*</span> Contraseña:</label
+                >
+                <input
+                  type="password"
+                  name="contrasena"
+                  size="40"
+                  maxlength="18"
+                  tabindex="15"
+                  id="contrasena"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="repContrasena"
+                  ><span class="rojo">*</span> Repita contraseña:</label
+                >
+                <input
+                  type="password"
+                  name="repContrasena"
+                  size="40"
+                  maxlength="18"
+                  tabindex="16"
+                  id="repContrasena"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="email"
+                  ><span class="rojo">*</span> Correo electrónico:</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  size="40"
+                  maxlength="60"
+                  value=""
+                  tabindex="17"
+                  id="email"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="repEmail"
+                  ><span class="rojo">*</span> Repita correo electrónico:</label
+                >
+                <input
+                  type="text"
+                  name="repEmail"
+                  size="40"
+                  maxlength="60"
+                  value=""
+                  tabindex="18"
+                  id="repEmail"
+                  required
+                />
+              </div>
+              <div class="camposformulario">
+                <label for="telefono"
+                  ><span class="rojo">*</span> Teléfono móvil:</label
+                >
+                <input
+                  type="text"
+                  name="telefono"
+                  size="20"
+                  maxlength="20"
+                  value=""
+                  tabindex="19"
+                  id="telefono"
+                  required
+                />
+              </div>
+              <div class="avisos info">
+                <p>
+                  El correo electrónico y el teléfono móvil indicados se
+                  utilizarán para recibir comunicaciones relativas a los
+                  trámites implementados en esta sede electrónica.
+                </p>
+              </div>
+            </fieldset>
+            <fieldset class="condiciones">
+              <legend>Declaraciones</legend>
+              <div>
+                <input
+                  type="checkbox"
+                  name="declaraVeracidad"
+                  value="true"
+                  tabindex="27"
+                  id="declaraVeracidad"
+                  required
+                />
+                <label for="declaraVeracidad"
+                  ><span class="rojo">*</span> Declaro que los datos que figuran
+                  en la solicitud de registro son ciertos, asumiendo en caso
+                  contrario, las responsabilidades que pudieran derivarse de su
+                  inexactitud y autorizando al Ministerio de Educación,
+                  Formación Profesional y Deportes la consulta de los mismos en
+                  el Sistema de Verificación de Datos de Identidad de la
+                  Dirección General de la Policía.</label
+                >
+              </div>
+            </fieldset>
+            <div>
+              <input
+                type="submit"
+                value="Aceptar"
+                id="aceptarbtn"
+                name="aceptarbtn"
+                class="btn"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="contenedor-right">
+          <div class="banner">
+            <p>Buscar tramites</p>
+            <img src="./img/buscador00.png" alt="buscador" />
+          </div>
+
+          <div class="banner">
+            <p>Expedientes</p>
+            <img src="./img/mis-expedientes00.png" alt="Expedientes" />
+          </div>
+          <div class="banner">
+            <p>Notificaciones</p>
+            <img src="./img/mis-notificaciones00.png" alt="notificaciones" />
+          </div>
+          <div class="banner">
+            <p>Mis Justificantes</p>
+            <img src="./img/mis-registros00.png" alt="registros" />
+          </div>
+          <div class="banner">
+            <p>
+              <a
+                href="https://sede.educacion.gob.es/informacion-ayuda/ayuda-sede.html"
+                rel="external-hwndAyuda"
+              >
+                Ayuda
+              </a>
+            </p>
+            <img src="./img/ayuda00.png" alt="ayuda" />
+          </div>
+
+          <div class="banner">
+            <p>
+              <a
+                href="https://sede.educacion.gob.es/comunes/saliendo.html?destino=https://www.educacionyfp.gob.es/servicios-al-ciudadano/catalogo/convocatorias-al-cierre.html"
+                rel="external-hwndConvProximasCierre"
+              >
+                Convocatorias próximas al cierre
+              </a>
+            </p>
+            <img src="./img/convocatorias00.png" alt="convocatorias" />
+          </div>
+          <div class="banner">
+            <p>
+              <a
+                href="https://sede.educacion.gob.es/cid/welcome"
+                rel="external-hwndVerificacionCSV"
+              >
+                Verificación de CSV
+              </a>
+            </p>
+            <img src="./img/csv00.png" alt="csv" />
+          </div>
+        </div>
+      </div>
+
+      <!-- pie de la pagina -->
+
+      <footer>
+        <div id="leyenda-navegadores">
+          <p>
+            <strong>Navegadores recomendados:</strong>
+          </p>
+          <p>
+            Web optimizada para las últimas versiones de Internet Explorer,
+            Mozilla Firefox y Google Chrome
+          </p>
+          <p>
+            <a
+              href="https://sede.educacion.gob.es/informacion-ayuda.html"
+              rel="external-hwndAyudaCertificados"
+              >Información y verificación de los certificados que admite el
+              sistema</a
+            >
+          </p>
+        </div>
+
+        <div id="pie">
+          <p>
+            <small
+              >V 2.2.21 (build 1.70) Fecha generación: 26/11/2024
+              07:25:00</small
+            >
+          </p>
+          <div class="clear"></div>
+          <p>
+            © Ministerio de Educación, Formación Profesional y Deportes -
+            Gobierno de España
+          </p>
+          <div class="clear"></div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
