@@ -1,0 +1,21 @@
+.contenedorFormularios{
+    display : flex;
+    justify-content: space-around;
+}
+
+h1 {
+    color: #619fe5;
+    text-align: center;
+}	
+ul{
+    color: #333333;
+    list-style-type: none;
+    border: 1px solid #619fe5;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f6fbfb;
+}
+li{
+    padding: 2px; 
+}
