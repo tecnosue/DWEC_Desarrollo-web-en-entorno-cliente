@@ -1,0 +1,35 @@
+button {
+  width: 120px;
+  height: 120px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  margin: 10px;
+}
+
+.chess {
+  width: fit-content;
+  height: 100%;
+  display: block;
+  background: #eee;
+  margin: 25px;
+  padding: 5px;
+  border-collapse: collapse; /* Para que los bordes estén pegados */
+}
+
+.chess td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5rem; /* Tamaño de las piezas */
+  cursor: default;
+  user-select: none;
+}
+
+/* Alternamos el color de las casillas */
+.chess tr:nth-child(odd) td:nth-child(even),
+.chess tr:nth-child(even) td:nth-child(odd) {
+  background-color: #111;
+  color: #fff;
+}
